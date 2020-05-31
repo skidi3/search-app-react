@@ -16,4 +16,4 @@ React js + Semantic UI
 
 ## Screenshots
 
-![Imgur](https://imgur.com/ehWfPbs)
+![search-app](/src/assets/search-app.gif)
