@@ -5,8 +5,12 @@ class Dropdown extends React.Component {
     super(props);
     this.state = {
       location: [],
-      locationtype: [],
-      selectedLocation: "Location",
+      locationtype: [
+        {
+          name: ["One BHK", "Two BHK"],
+        },
+      ],
+      selectedLocation: "Flat",
     };
     this.changeLocation = this.changeLocation.bind(this);
   }
@@ -40,6 +44,7 @@ class Dropdown extends React.Component {
         },
       ],
     });
+    this.setState({ selectedLocation: this.state.location.name });
   }
 
   changeLocation(event) {
@@ -56,11 +61,9 @@ class Dropdown extends React.Component {
       <div className="dropdown-container">
         <div className="dropdown margin">
           <select
-            placeholder="Location"
             value={this.state.selectedLocation}
             onChange={this.changeLocation}
           >
-            <option>Location</option>
             {this.state.location.map((e, key) => {
               return <option key={key}>{e.name}</option>;
             })}
@@ -68,12 +71,7 @@ class Dropdown extends React.Component {
         </div>
 
         <div className="dropdown margin">
-          <select
-            placeholder="LocationType"
-            value={this.state.selectedState}
-            onChange={this.changeState}
-          >
-            <option>{this.state.selectedLocation} type</option>
+          <select value={this.state.selectedLocationType}>
             {this.state.locationtype.map((e, key) => {
               return <option key={key}>{e.name[0]}</option>;
             })}
